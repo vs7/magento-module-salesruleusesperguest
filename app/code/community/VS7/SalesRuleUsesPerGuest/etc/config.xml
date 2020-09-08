@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <VS7_SalesRuleUsesPerGuest>
+            <version>0.1.0</version>
+        </VS7_SalesRuleUsesPerGuest>
+    </modules>
+    <global>
+        <models>
+            <salesrule>
+                <rewrite>
+                    <validator>VS7_SalesRuleUsesPerGuest_Model_Validator</validator>
+                </rewrite>
+            </salesrule>
+        </models>
+        <resources>
+            <vs7_salesruleusesperguest_setup>
+                <setup>
+                    <module>VS7_SalesRuleUsesPerGuest</module>
+                </setup>
+            </vs7_salesruleusesperguest_setup>
+        </resources>
+    </global>
+    <adminhtml>
+        <events>
+            <adminhtml_promo_quote_edit_tab_main_prepare_form>
+                <observers>
+                    <vs7_salesruleusesperguest_addfield>
+                        <class>VS7_SalesRuleUsesPerGuest_Model_Observer</class>
+                        <method>addField</method>
+                    </vs7_salesruleusesperguest_addfield>
+                </observers>
+            </adminhtml_promo_quote_edit_tab_main_prepare_form>
+        </events>
+    </adminhtml>
+</config>
